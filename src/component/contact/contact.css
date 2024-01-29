@@ -1,0 +1,54 @@
+.contact-container{
+    display: flex;
+    justify-content: center;
+    background-color: #111;
+    margin-top: 50px ;
+}
+
+.contact-wrapper{
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    padding: 20px ;
+    margin-top: 20px;
+}
+
+.contact-wrapper form{
+    width: 70%;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-wrapper .form-group{
+    display: flex;
+    gap:10px;
+}
+.contact-wrapper .form-group input,.contact-wrapper textarea{
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(110,231,183);
+    padding: 5px 0;
+    font:400 1.2rem "poppins";
+    color: white;
+    
+}
+.contact-wrapper button{
+    background-color: rgb(110,231,183);
+    color: black;
+    font: 500 1.2rem "poppins";
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+
+.contact-wrapper .form-group input:hover,.contact-wrapper textarea:hover{
+    outline: none;
+}

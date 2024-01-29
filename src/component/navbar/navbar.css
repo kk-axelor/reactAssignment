@@ -1,0 +1,29 @@
+nav{
+    display: flex;
+    justify-content: center;   
+    height: 100px;  
+    background-color: rgb(110 231 183);
+    color: white;
+    font-weight: 700;
+} 
+
+.nav-wrapper{
+    max-width: 1280px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ 
+.nav-wrapper > ul{
+    display: flex;
+    list-style: none;
+    gap:15px;
+     margin-right: 10px;
+}
+
+.nav-wrapper  >ul li a{
+    text-decoration: none;
+    color: inherit;
+}
+

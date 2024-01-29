@@ -1,0 +1,32 @@
+.hero-container{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(241 245 249);
+    height: calc(100vh - 100px);
+}
+.hero-wrapper{
+    max-width: 1024px;
+    width: 100%;
+    display: flex;
+    margin-top: 70px;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+
+}
+
+.hero-wrapper >img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+
+}
+
+.hero-wrapper >p{
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.news-letter{
+    color: rgb(110,231,183);
+}
