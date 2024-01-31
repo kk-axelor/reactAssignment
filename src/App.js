@@ -5,6 +5,7 @@ import CardItem from "./component/CardItem";
 import TotalItem from "./component/TotalItem";
 import { useContext, useState } from "react";
 import { CardContext } from "./cardContext";
+import Navbar from "./component/Navbar";
 
 function App() {
 
@@ -14,6 +15,9 @@ function App() {
   return (
     <>
       <Container fluid>
+        <Row>
+          <Navbar />
+        </Row>
         <Row>
           <Col className="left" lg xl="8" md="6">
             <Row>
