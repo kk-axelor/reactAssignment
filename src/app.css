@@ -1,0 +1,11 @@
+.bg-antiquewhite{
+    background-color: antiquewhite;
+}
+.z-10{
+    z-index: 10;
+}
+.toast-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
