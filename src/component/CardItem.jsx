@@ -11,13 +11,12 @@ const CardItem = ({ img, title, price, id, setToastList }) => {
     dispatch({ type: "ADD_CART", paylod: { title, price, id, quantity: 1 } });
 
     setTimeout(() => {
-      setToastList((prev) => prev.filter((item, index) => index != 0));
+      setToastList((prev) => prev.filter((_, index) => index !== 0));
     }, 3000);
   };
 
   return (
     <>
-      {" "}
       <Col xl="3" xxl="2" lg md="6">
         <Card className="p-2">
           <CardImg style={{ height: "200px", objectFit: "cover" }} src={img} />

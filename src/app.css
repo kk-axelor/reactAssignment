@@ -9,6 +9,47 @@
     top: 0;
     right: 0;
 }
+
 .navbar-bg{
     background-color: rgb(212, 208, 208);
+}
+
+.cross-btn{
+margin: 2px;
+    display: flex;
+    padding: 1px;
+    position: absolute;
+    top: -8px;
+    right: -15px;
+    width: 20px;
+    height:20px;
+     border-radius:50%;
+     cursor: pointer;
+    border: 2px solid rgb(77, 76, 76);
+
+}
+.inc-dec-btn{
+    border: none;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid gray;
+    /* border-radius: 50%; */
+    width: 35px;
+    height: 35px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.cart-title{
+    width: 200px;
+}
+
+
+.item-price{
+    width: 80px;
+    height: 25px;
+    
+    
 }
