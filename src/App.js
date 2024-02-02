@@ -1,6 +1,6 @@
 import { Col, Container, Toast, ListGroup, Row } from "react-bootstrap";
 import "./app.css";
-import { data } from "./constant";
+import { data as items } from "./constant";
 import CardItem from "./component/CardItem";
 import TotalItem from "./component/TotalItem";
 import { useContext, useState } from "react";
@@ -8,6 +8,7 @@ import { CardContext } from "./cardContext";
 import Navbar from "./component/Navbar";
 
 function App() {
+
 
   const { itemlist, total } = useContext(CardContext);
   const [toastList, setToastList] = useState([])
@@ -21,7 +22,7 @@ function App() {
         <Row>
           <Col className="left" lg xl="8" md="6">
             <Row>
-              {data.map((item, i) => (
+              {items.map((item, i) => (
                 <CardItem key={i} {...item} setToastList={setToastList} />
               ))}
             </Row>
@@ -42,12 +43,10 @@ function App() {
                     </div>
                   </>
               }
-
             </ListGroup>
           </Col>
         </Row>
       </Container >
-
       <div className="toast-container">
         {
           toastList.map((item) => (
@@ -61,7 +60,6 @@ function App() {
           ))
         }
       </div >
-
     </>
 
   );

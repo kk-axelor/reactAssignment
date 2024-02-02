@@ -5,7 +5,6 @@ const cardReducer = (state, action) => {
         case "ADD_CART":
             {
 
-                console.log("add cart method call")
                 const { id, price } = action.paylod;
                 state.total = state.total + price;
                 const isExist = state.itemlist.find(item => item.id === id)
@@ -27,11 +26,9 @@ const cardReducer = (state, action) => {
         case "REMOVE_CART":
             {
 
-                console.log("remove cart call")
                 const item = state.itemlist.find(item => item.id === id)
                 console.log(item)
                 const total = state.total - item.price * item.quantity;
-
                 console.log(total)
                 const updatedList = state.itemlist.filter(item => item.id !== id)
                 console.log(updatedList)
@@ -44,8 +41,6 @@ const cardReducer = (state, action) => {
 
                 const item = state.itemlist.find(item => item.id === id)
                 const total = state.total + item.price
-                const { price } = action.paylod
-
                 const updatedList = state.itemlist.map(item => item.id === id ? { ...item, quantity: item.quantity + 1 } : item);
                 return { total, itemlist: updatedList }
 
@@ -59,8 +54,6 @@ const cardReducer = (state, action) => {
                     return state;
                 }
                 const total = state.total - item.price
-                const { price } = action.paylod;
-
                 const updatedList = state.itemlist.map(item => item.id === id ? { ...item, quantity: item.quantity - 1 } : item);
                 return { total, itemlist: updatedList }
 
