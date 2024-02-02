@@ -9,6 +9,7 @@ import CheckboxComponent from './components/CheckboxComponent'
 
 const OPTIONS = ['Tomcat', 'WebLogic', 'Glass Fish']
 const RADIO_OPTIONS = ['Admin', 'Engineer', 'Manager', 'Guest']
+const CHECKBOX_OPTIONS = ['Mail', 'Payroll', 'Self-Services']
 
 const App = () => {
 
@@ -23,7 +24,6 @@ const App = () => {
   const [error, seterror] = useState("");
   const [data, setData] = useState(intialState);
 
-  const checkboxes = ['']
 
   const handleInput = (e) => {
     seterror("")
@@ -98,9 +98,8 @@ const App = () => {
 
         <Input
           text="Username"
-          // type="text"
           name="username"
-          // placeholder={"Enter username"}
+          placeholder={"Kunal shaw"}
           data={data.username}
           onChange={handleInput} />
 
@@ -109,15 +108,16 @@ const App = () => {
           text="Password"
           type="password"
           name="password"
+          placeholder={"Password"}
           data={data.password}
-          handleInput={handleInput} />
+          onChange={handleInput} />
 
         <Input
           text="City"
-          type="text"
           name="city"
           data={data.city}
-          handleInput={handleInput} />
+          placeholder={"surat"}
+          onChange={handleInput} />
 
 
         <SelectComponent
@@ -125,7 +125,7 @@ const App = () => {
           name="webservers"
           data={data.webserver}
           options={OPTIONS}
-          handleInput={handleInput} />
+          onChange={handleInput} />
 
         <RadioComponent
           text="Please Specify your role"
@@ -133,14 +133,16 @@ const App = () => {
           name="role"
           type="radio"
           data={data.role}
-          handleInput={handleInput}
+          onChange={handleInput}
         />
 
-        {/* <CheckboxComponent
+        <CheckboxComponent
           text="Single Sign-on to the following"
-          checkboxes={checkboxes}
-
-        /> */}
+          type="checkbox"
+          checkboxes={CHECKBOX_OPTIONS}
+          onChange={handleCheckbox}
+          sign={sign}
+        />
 
 
         <p className='error'>{error}</p>

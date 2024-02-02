@@ -1,20 +1,20 @@
 import React from "react";
 
-const RadioComponent = ({ text, type, name, radios, data, handleInput }) => {
+const RadioComponent = ({ text, type, name, radios, data, onChange }) => {
   return (
     <div className="items">
       <label htmlFor="">{text}</label>
       <div className="list-item">
         {radios.map((radio, i) => (
-          <div>
+          <div key={i}>
             <input
               type={type}
               name={name}
               value={radio}
               checked={data === radio}
-              onChange={(e) => handleInput(e)}
+              onChange={(e) => onChange(e)}
             />
-            <span>Admin</span>
+            <span>{radio}</span>
           </div>
         ))}
       </div>
