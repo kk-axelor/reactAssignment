@@ -7,14 +7,14 @@ const CalenderView = () => {
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [list, setList] = useState([]);
   const [firstDay, setFirstDay] = useState();
-  const brid = useId();
+  const brID = useId();
 
   useEffect(() => {
     const firstDay = new Date(currentYear, currentMonth, 0o1).getDay();
-    const nod = new Date(currentYear, currentMonth + 1, 0).getDate();
+    const days = new Date(currentYear, currentMonth + 1, 0).getDate();
     setFirstDay(firstDay);
 
-    const total = firstDay + nod;
+    const total = firstDay + days;
     setList(
       Array(total)
         .fill()
@@ -38,7 +38,16 @@ const CalenderView = () => {
       setCurrentMonth(currentMonth + 1);
     }
   };
-
+  const handleClick = (type, month) => {
+    if (type === "Prev") {
+      setCurrentMonth(currentMonth === 0 ? month : currentMonth - 1);
+      setCurrentYear(currentYear - 1);
+    } else {
+      setCurrentMonth(currentMonth === 11 ? 0 : currentMonth + 1);
+      setCurrentYear(currentYear + 1);
+    }
+  };
+  // handleClick("Prev", 11)
   return (
     <div className="container">
       <div className="calender-header">
@@ -60,9 +69,9 @@ const CalenderView = () => {
           {list.map((day, i) => (
             <>
               <li className="list" key={i}>
-                {day - firstDay <= 0 ? <span>Na</span> : day - firstDay}
+                {day - firstDay <= 0 ? <span>&nbsp;</span> : day - firstDay}
               </li>
-              {day % 7 === 0 && <br key={brid} />}
+              {day % 7 === 0 && <br key={brID} />}
             </>
           ))}
         </div>
