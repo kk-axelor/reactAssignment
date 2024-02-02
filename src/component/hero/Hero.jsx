@@ -1,15 +1,15 @@
 import React from "react";
 import "./hero.css";
-
+// Profile
 const Hero = () => {
   return (
     <section className="hero-container">
       <div className="hero-wrapper">
         <img
           src="https://img.freepik.com/free-vector/man-profile-account-picture_24908-81754.jpg?w=826&t=st=1706506180~exp=1706506780~hmac=955674e394e3ece6a7ec7fd3ce86bea255cea6cc99bd175f304b823d02e7f117"
-          alt=""
+          alt="profilephoto"
         />
-        <h1>Hii, I am Stanley!</h1>
+        <h1>Hi, I am Stanley!</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut incidunt
           molestias quod obcaecati, quos quaerat sint ab excepturi accusamus
