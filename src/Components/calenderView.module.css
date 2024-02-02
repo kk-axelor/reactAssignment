@@ -1,0 +1,36 @@
+.container {
+  width: fit-content;
+}
+
+.list {
+  width: 100px;
+  height: 70px;
+  display: inline-block;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: center;
+  padding: 20px;
+}
+
+.showDates {
+  width: fit-content;
+  border: 1px solid black;
+}
+
+.calenderHeader {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  align-items: center;
+  font: 500 1.2rem "popins";
+}
+
+.container button {
+  width: 100px;
+  padding: 10px;
+  border: none;
+  background-color: blue;
+  border-radius: 4px;
+  color: white;
+  font: 500 1.2rem "poppins" large;
+}
