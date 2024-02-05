@@ -4,7 +4,7 @@ import Hero from "./component/hero/Hero";
 import About from "./component/about/About";
 import Blog from "./component/blog/Blog";
 import Contact from "./component/contact/Contact";
-import Service from "./component/service/Service";
+import Work from "./component/work/Work";
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <Service />
+      <Work />
       <Blog />
       <Contact />
     </React.Fragment>

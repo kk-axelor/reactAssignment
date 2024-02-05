@@ -1,59 +1,54 @@
-.about-container{
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
+.about-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
 }
 
-.about-wrapper{
-    max-width: 1280px;
-    width: 100%;
-    display: flex;
+.about-wrapper {
+  max-width: 1280px;
+  width: 100%;
+  display: flex;
 }
-.about-wrapper >.left {
-    overflow: hidden;
-    flex: 1;
-    
+.about-wrapper > .left {
+  overflow: hidden;
+  flex: 1;
 }
-.about-wrapper .left img  {
-border-top-right-radius: 40px;
-border-bottom-left-radius: 40px;
-width: 80%;
+.about-wrapper .left img {
+  border-top-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  width: 80%;
 }
 
-.about-wrapper .right{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap:20px;
+.about-wrapper .right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.about-wrapper .right  h1{
-    color: rgb(110 231 183);
-    padding: 10px;
-    border: 2px solid rgb(110,231,183);
-    width: fit-content;
-    font:500 1.6rem "times";
+.about-wrapper .right h1 {
+  color: rgb(110 231 183);
+  padding: 10px;
+  border: 2px solid rgb(110, 231, 183);
+  width: fit-content;
+  font: 500 1.6rem "times";
 }
 .about-wrapper .right p {
-
-    font-size: 1.2rem;
-    width: 80%;
-
+  font-size: 1.2rem;
+  width: 80%;
 }
 
-.about-info{
-    display: flex;;
-    flex-wrap: wrap;
+.about-info {
+  display: flex;
+  flex-wrap: wrap;
 }
-.about-info .item{
-    width: 50%;
-    margin-bottom: 20px;
+.about-info .item {
+  width: 50%;
+  margin-bottom: 20px;
 }
-.about-info .item span{
-    color: rgb(110,231,183);
-    font: 500 1.3rem "poppins";
-    
+.about-info .item span {
+  color: rgb(110, 231, 183);
+  font: 500 1.3rem "poppins";
 }
-.about-info .item p{
-    color: gray;
+.about-info .item p {
+  color: gray;
 }
-

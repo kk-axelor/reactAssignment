@@ -1,9 +1,9 @@
 import React from "react";
-import "./service.css";
-const Service = () => {
+import "./work.css";
+const Work = () => {
   return (
-    <section class="service-container" id="service">
-      <div class="service-wrapper">
+    <section className="service-container" id="service">
+      <div className="service-wrapper">
         <h1>My Services</h1>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas,
@@ -11,18 +11,17 @@ const Service = () => {
           iusto dicta consequatur! Pariatur velit error rerum, quasi eius
           repudiandae reiciendis. Iusto.
         </p>
-
-        <div class="service-items">
-          <div class="service-item">
-            <i class="fa-solid fa-pen-nib service-icon"></i>
+        <div className="service-items">
+          <div className="service-item">
+            <i className="fa-solid fa-pen-nib service-icon"></i>
             <p>Web Design</p>
           </div>
-          <div class="service-item">
-            <i class="fa-solid fa-code service-icon"></i>
+          <div className="service-item">
+            <i className="fa-solid fa-code service-icon"></i>
             <p>Frontend Development</p>
           </div>
-          <div class="service-item">
-            <i class="fa-solid fa-layer-group service-icon"></i>
+          <div className="service-item">
+            <i className="fa-solid fa-layer-group service-icon"></i>
             <p>MERN Stack</p>
           </div>
         </div>
@@ -31,4 +30,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default Work;

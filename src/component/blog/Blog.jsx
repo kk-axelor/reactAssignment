@@ -1,7 +1,6 @@
 import React from "react";
 import "./blog.css";
-import { blogdata } from "../../constant";
-// blogdata = [];
+import { BLOG_DATA as blogdata } from "../../constant";
 const Blog = () => {
   return (
     <div className="blog-container" id="blog">

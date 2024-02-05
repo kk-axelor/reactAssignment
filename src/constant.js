@@ -1,4 +1,4 @@
-export const blogdata = [
+export const BLOG_DATA = [
     {
         id: 1,
         img: "https://img.freepik.com/free-photo/rpa-concept-with-blurry-hand-touching-screen_23-2149311914.jpg?size=626&ext=jpg&ga=GA1.1.1773456372.1704889031&semt=sph",
