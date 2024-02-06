@@ -1,17 +1,49 @@
 import { Col, Container, Toast, ListGroup, Row } from "react-bootstrap";
 import "./app.css";
-import { data as items } from "./constant";
 import CardItem from "./component/CardItem";
 import TotalItem from "./component/TotalItem";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CardContext } from "./cardContext";
 import Navbar from "./component/Navbar";
+import SideBar from "./component/SideBar";
+import { useSearchParams } from "react-router-dom";
+import data from "./JSON_DATA.json"
 
 function App() {
-
-
   const { itemlist, total } = useContext(CardContext);
-  const [toastList, setToastList] = useState([])
+  const [toastList, setToastList] = useState([]);
+  const [items, setItems] = useState(data)
+  const [filterItem, setFilterItem] = useState(items)
+  const [param, setParam] = useSearchParams();
+
+  useEffect(() => {
+    const type = param.get("type")
+    const sort = param.get('sort')
+
+    if (type === null && sort === null) {
+      setFilterItem(items)
+      return;
+    }
+
+    let filteredItems = [...items];
+    // Filter by type
+    if (type !== null) {
+      filteredItems = filteredItems.filter((item) => item.type === type);
+    }
+
+
+    // Sort
+    if (sort === "asc") {
+      filteredItems.sort((a, b) => a.price - b.price);
+    } else if (sort === "desc") {
+      filteredItems.sort((a, b) => b.price - a.price);
+    } else if (sort === "title") {
+      filteredItems.sort((a, b) => a.title.localeCompare(b.title));
+    }
+
+    setFilterItem(filteredItems);
+
+  }, [param])
 
   return (
     <>
@@ -20,14 +52,17 @@ function App() {
           <Navbar />
         </Row>
         <Row>
-          <Col className="left" lg xl="8" md="6">
+          <Col lg xl="2" md="2">
+            <SideBar />
+          </Col>
+          <Col className="left" lg xl="6" md="6">
             <Row>
-              {items.map((item, i) => (
+              {filterItem.map((item, i) => (
                 <CardItem key={i} {...item} setToastList={setToastList} />
               ))}
             </Row>
           </Col>
-          <Col lg xl="4" md="6">
+          <Col lg xl="4" md="4">
             <ListGroup as='ol' numbered>
               {
                 itemlist.length === 0 ? <p className="w-100 p-3  rounded bg-antiquewhite" >cart is empty</p> :

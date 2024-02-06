@@ -1,55 +1,76 @@
-.bg-antiquewhite{
-    background-color: antiquewhite;
+.bg-antiquewhite {
+  background-color: antiquewhite;
 }
-.z-10{
-    z-index: 10;
-}
-.toast-container{
-    position: absolute;
-    top: 0;
-    right: 0;
+.z-10 {
+  z-index: 10;
 }
 
-.navbar-bg{
-    background-color: rgb(212, 208, 208);
+.heading {
+  font-size: 1.3rem;
+  font-family: Poppins;
+  color: rgb(69, 68, 68);
+  margin-bottom: 20px;
+  display: inline-block;
+  margin: 20px;
+  min-width: 100px;
+}
+.toast-container {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
-.cross-btn{
-margin: 2px;
-    display: flex;
-    padding: 1px;
-    position: absolute;
-    top: -8px;
-    right: -15px;
-    width: 20px;
-    height:20px;
-     border-radius:50%;
-     cursor: pointer;
-    border: 2px solid rgb(77, 76, 76);
-
-}
-.inc-dec-btn{
-    border: none;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1.5px solid gray;
-    /* border-radius: 50%; */
-    width: 35px;
-    height: 35px;
-    margin-left: 20px;
-    cursor: pointer;
+.navbar-bg {
+  background-color: rgb(212, 208, 208);
 }
 
-.cart-title{
-    width: 200px;
+.cross-btn {
+  margin: 2px;
+  display: flex;
+  padding: 1px;
+  position: absolute;
+  top: -8px;
+  right: -15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid rgb(77, 76, 76);
+}
+.inc-dec-btn {
+  border: none;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid gray;
+  /* border-radius: 50%; */
+  width: 35px;
+  height: 35px;
+  margin-left: 20px;
+  cursor: pointer;
 }
 
+.cart-title {
+  width: 200px;
+}
 
-.item-price{
-    width: 80px;
-    height: 25px;
-    
-    
+.item-price {
+  width: 80px;
+  height: 25px;
+}
+
+.clear-filter {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.clear-filter .button {
+  width: 200px;
 }

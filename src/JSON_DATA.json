@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "img": "apple.jpeg",
+    "title": "Apple",
+    "price": 10,
+    "type": "fruit"
+  },
+  {
+    "id": 2,
+    "img": "banana.png",
+    "title": "Banana",
+    "price": 10,
+    "type": "fruit"
+  },
+  {
+    "id": 3,
+    "img": "brinjal.jpeg",
+    "title": "Brinjal",
+    "price": 20,
+    "type": "vegetable"
+  },
+  {
+    "id": 4,
+    "img": "broccoli.jpeg",
+    "title": "StrawBroccoi",
+    "price": 50,
+    "type": "vegetable"
+  },
+  {
+    "id": 5,
+    "img": "capcicum.jpeg",
+    "title": "Capcicum",
+    "price": 4,
+    "type": "vegetable"
+  },
+  {
+    "id": 6,
+    "img": "carrot.jpg",
+    "title": "Carrot",
+    "price": 30,
+    "type": "vegetable"
+  },
+  {
+    "id": 7,
+    "img": "graphes.jpeg",
+    "title": "Graphes",
+    "price": 8,
+    "type": "fruit"
+  },
+  {
+    "id": 8,
+    "img": "mashroom.png",
+    "title": "Mashrrom",
+    "price": 15,
+    "type": "vegetable"
+  },
+  {
+    "id": 9,
+    "img": "onion.jpg",
+    "title": "Onion",
+    "price": 8,
+    "type": "vegetable"
+  },
+  {
+    "id": 10,
+    "img": "pineapple.png",
+    "title": "Pine-apple",
+    "price": 18,
+    "type": "fruit"
+  },
+  {
+    "id": 11,
+    "img": "red-chilly.jpeg",
+    "title": "Red-Chilly",
+    "price": 8,
+    "type": "vegetable"
+  },
+  {
+    "id": 12,
+    "img": "strawberry.jpg",
+    "title": "strawberry",
+    "price": 60,
+    "type": "fruit"
+  },
+  {
+    "id": 13,
+    "img": "cherry.png",
+    "title": "Cherry",
+    "price": 10,
+    "type": "fruit"
+  },
+  {
+    "id": 14,
+    "img": "guava.png",
+    "title": "Guava",
+    "price": 18,
+    "type": "fruit"
+  },
+  {
+    "id": 15,
+    "img": "tomato.png",
+    "title": "Tomato",
+    "price": 12,
+    "type": "vegetable"
+  }
+]
