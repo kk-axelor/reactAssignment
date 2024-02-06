@@ -1,0 +1,9 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.mainWrapper {
+  max-width: 1280px;
+  width: 100%;
+}

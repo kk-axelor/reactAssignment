@@ -1,8 +1,19 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FetchAPI from "./Components/fecthapi/FetchAPI";
+import Layout from "./layouts/Layout";
+import AxiosMethod from "./Components/axiosmethod/AxiosMethod";
 
 
 function App() {
   return (
-    <div>Hello</div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />} >
+          <Route path="/" element={<FetchAPI />} />
+          <Route path="/usingAxios" element={<AxiosMethod />} />
+        </Route>
+      </Routes>
+    </BrowserRouter >
   );
 }
 
