@@ -52,6 +52,7 @@ const Login = () => {
             text="Password"
             name="password"
             placeholder="Password"
+            type="password"
             value={credential.password}
             onChange={onChange}
           />
