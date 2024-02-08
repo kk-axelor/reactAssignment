@@ -1,0 +1,29 @@
+.navContainer {
+  display: flex;
+  justify-content: center;
+  height: 70px;
+  background: #4d4d4d;
+}
+
+.navWrapper {
+  max-width: 1280px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navlink a {
+  font-size: 1.1rem;
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.navlink a:hover {
+  color: #3b82f6;
+}
+.active {
+  text-decoration: underline;
+  color: #3b82f6;
+}
