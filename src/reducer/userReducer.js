@@ -1,15 +1,26 @@
-const useReducer = (state, action) => {
+const userReducer = (state, action) => {
 
     switch (action.type) {
         case "ADD_USER":
             return {
-                username: action.paylod.username,
-                password: action.payload.password,
+                ...state,
+                user: {
+                    username: action.paylod.username,
+                    password: action.paylod.password,
+                }
             }
-        default: return state
+        case "REMOVE_USER":
+            return {
+                ...state,
+                user: null
+            }
+
+
+        default: return state;
     }
 
 
 
 
 }
+export default userReducer;

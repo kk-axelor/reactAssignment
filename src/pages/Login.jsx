@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "../Styles/login.module.css";
 import Input from "../Components/Input";
+import { userContext } from "../context/userContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const { dispatch } = useContext(userContext);
   const [credential, setCredential] = useState({
     username: "",
     password: "",
@@ -18,9 +22,17 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     if (credential.username === "admin" && credential.password === "admin") {
-      //save data in the context api
+      dispatch({
+        type: "ADD_USER",
+        paylod: {
+          username: credential.username,
+          password: credential.password,
+        },
+      });
+      alert("Success fully login");
+      navigate("/");
     } else {
-      alert("wrong credentioal");
+      alert("wrong credential");
     }
   };
 
