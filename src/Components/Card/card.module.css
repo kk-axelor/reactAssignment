@@ -1,0 +1,26 @@
+.cardContainer {
+  width: 400px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.cardImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.cardContainer div {
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.cardContainer > div p strong {
+  margin-right: 20px;
+  font: 1.2rem 500 "Times New Roman";
+  color: teal;
+}

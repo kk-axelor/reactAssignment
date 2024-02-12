@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FetchAPI from "./Components/fecthapi/FetchAPI";
 import Layout from "./layouts/Layout";
 import AxiosMethod from "./Components/axiosmethod/AxiosMethod";
-
+import './app.css'
 
 function App() {
   return (

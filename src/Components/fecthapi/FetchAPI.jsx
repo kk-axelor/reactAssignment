@@ -1,29 +1,24 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
-import { type } from "@testing-library/user-event/dist/type";
+import Card from "../Card/Card";
 
 const FetchAPI = () => {
   const [contactData, setContactData] = useState([]);
 
   const handleClick = async () => {
-    try {
-      const res = await fetch("http://localhost:5000/api/contacts", {
-        mode: "no-cors",
-      });
-      console.log("hello");
-      console.log(res);
-      const data = await res.json();
-
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
+    const res = await fetch("http://localhost:5000/api/contacts");
+    const data = await res.json();
+    setContactData(data);
   };
 
   return (
     <section>
-      <Button text={"Click here to Fetch Data"} onClick={handleClick} />
-      <div>{}</div>
+      <Button onClick={handleClick}>Click here Fetch Data</Button>
+      <div className="cards-container">
+        {contactData.map((item, id) => (
+          <Card key={id} {...item} />
+        ))}
+      </div>
     </section>
   );
 };
