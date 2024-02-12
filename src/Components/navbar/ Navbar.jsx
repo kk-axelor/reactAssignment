@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./navbar.module.css";
-
+import { navlink } from "../../constants";
 const Navbar = () => {
   const [active, setActive] = useState("fetch");
 
@@ -11,20 +11,16 @@ const Navbar = () => {
 
   return (
     <nav>
-      <NavLink
-        onClick={() => handleClick("fetch")}
-        className={active === "fetch" ? styles.active : ""}
-        to="/"
-      >
-        Fetch using Fetch API
-      </NavLink>
-      <NavLink
-        onClick={() => handleClick("axios")}
-        className={active === "axios" ? styles.active : ""}
-        to="/usingAxios"
-      >
-        Fetch using Axios
-      </NavLink>
+      {navlink.map((link) => (
+        <NavLink
+          key={link.id}
+          onClick={() => handleClick(link.name)}
+          className={active === link.name ? styles.active : ""}
+          to={link.to}
+        >
+          {link.title}
+        </NavLink>
+      ))}
     </nav>
   );
 };
