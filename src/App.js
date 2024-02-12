@@ -1,9 +1,14 @@
+import React from 'react'
+import { useGetPostsQuery } from './redux/myApi'
 
-
-function App() {
+const App = () => {
+  const { isError, isFetching, isLoading, isSuccess, error, data } = useGetPostsQuery()
+  console.log(error)
   return (
-    <div>Hello</div>
-  );
+    <div>{
+      isSuccess ? <p>data find sucessfully</p> : <p>{error?.data}</p>
+    }</div>
+  )
 }
 
-export default App;
+export default App
