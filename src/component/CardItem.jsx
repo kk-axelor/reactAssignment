@@ -16,9 +16,9 @@ const CardItem = ({ img, title, price, id, setToastList }) => {
   return (
     <>
       <Col xl="6" xxl="3" lg md="6" sm="12">
-        <Card className="p-2">
+        <Card className="p-2 mb-3">
           <CardImg
-            style={{ height: "200px", objectFit: "cover" }}
+            style={{ height: "200px", objectFit: "contain" }}
             src={require(`../img/${img}`)}
             alt={title}
           />
