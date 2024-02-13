@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./app.css"
+import styles from "./app.module.css"
 import Input from './components/Input'
 import SelectComponent from './components/SelectComponent'
 import RadioComponent from './components/RadioComponent'
@@ -23,6 +23,7 @@ const App = () => {
   const [sign, setSign] = useState([])
   const [error, seterror] = useState("");
   const [data, setData] = useState(intialState);
+  const [errorKey, setErrorkey] = useState()
 
 
   const handleInput = (e) => {
@@ -30,29 +31,31 @@ const App = () => {
     setData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
+  console.log(errorKey)
 
 
   const handleSubmit = (e) => {
-
     e.preventDefault();
     for (const key in data) {
       console.log(data[key])
       if (data[key] === '') {
+        setErrorkey(key);
         seterror(`${key} should not be Empty`);
         return;
       }
     }
 
     if (sign.length === 0) {
+      setErrorkey("sign");
       seterror(`please select sign on data filed`);
       return
     }
     if (checkPassword(data.password)) {
+      setErrorkey("password")
       return;
     }
     window.alert("Success fully submitted")
   }
-
 
   const handleCheckbox = (e) => {
     seterror('');
@@ -62,8 +65,6 @@ const App = () => {
     else {
       setSign(sign.filter((prev) => prev !== e.target.value))
     }
-
-    // console.log(data)
   }
 
 
@@ -77,14 +78,12 @@ const App = () => {
       seterror("Password must containt atleast one digit ")
       return true;
     }
-
     return false;
   }
 
 
 
   const handleReset = (e) => {
-    // console.log("hello")
     e.preventDefault()
     setData(intialState);
     setSign([])
@@ -99,9 +98,12 @@ const App = () => {
         <Input
           text="Username"
           name="username"
-          placeholder={"Kunal shaw"}
+          placeholder={"Enter Your name"}
           data={data.username}
-          onChange={handleInput} />
+          onChange={handleInput}
+          error={errorKey === "username" ? error : null}
+
+        />
 
 
         <Input
@@ -110,14 +112,19 @@ const App = () => {
           name="password"
           placeholder={"Password"}
           data={data.password}
-          onChange={handleInput} />
+          onChange={handleInput}
+          error={errorKey === "password" ? error : null}
+        />
+
 
         <Input
           text="City"
           name="city"
           data={data.city}
           placeholder={"surat"}
-          onChange={handleInput} />
+          onChange={handleInput}
+          error={errorKey === "city" ? error : null}
+        />
 
 
         <SelectComponent
@@ -125,7 +132,10 @@ const App = () => {
           name="webservers"
           data={data.webserver}
           options={OPTIONS}
-          onChange={handleInput} />
+          onChange={handleInput}
+          error={errorKey === "webserver" ? error : null}
+
+        />
 
         <RadioComponent
           text="Please Specify your role"
@@ -134,6 +144,8 @@ const App = () => {
           type="radio"
           data={data.role}
           onChange={handleInput}
+          error={errorKey === "role" ? error : null}
+
         />
 
         <CheckboxComponent
@@ -142,14 +154,13 @@ const App = () => {
           checkboxes={CHECKBOX_OPTIONS}
           onChange={handleCheckbox}
           sign={sign}
+          error={errorKey === "sign" ? error : null}
         />
 
 
-        <p className='error'>{error}</p>
         <div className='btn-group'>
-
-          <button className='btn' type='submit' >Login</button>
-          <button className='btn' onClick={(e) => handleReset(e)}>Reset</button>
+          <button className={styles.btn} type='submit' >Login</button>
+          <button className={styles.btn} onClick={(e) => handleReset(e)}>Reset</button>
         </div>
 
       </form >

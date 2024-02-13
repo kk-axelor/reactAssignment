@@ -1,10 +1,18 @@
 import React from "react";
-
-const RadioComponent = ({ text, type, name, radios, data, onChange }) => {
+import styles from "../app.module.css";
+const RadioComponent = ({
+  text,
+  type,
+  name,
+  radios,
+  data,
+  onChange,
+  error,
+}) => {
   return (
-    <div className="items">
+    <div className={styles.items}>
       <label htmlFor="">{text}</label>
-      <div className="list-item">
+      <div className={styles.listItem}>
         {radios.map((radio, i) => (
           <div key={i}>
             <input
@@ -17,6 +25,8 @@ const RadioComponent = ({ text, type, name, radios, data, onChange }) => {
             <span>{radio}</span>
           </div>
         ))}
+
+        {error && <p className={styles.error}>{error}</p>}
       </div>
     </div>
   );

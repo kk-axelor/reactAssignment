@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "../app.module.css";
 
 const Input = ({
   text,
@@ -7,9 +8,10 @@ const Input = ({
   name,
   value,
   onChange,
+  error = null,
 }) => {
   return (
-    <div className="items">
+    <div className={styles.items}>
       <label htmlFor={name}>{text}</label>
       <input
         type={type}
@@ -18,6 +20,7 @@ const Input = ({
         placeholder={placeholder}
         onChange={(e) => onChange(e)}
       />
+      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
 };

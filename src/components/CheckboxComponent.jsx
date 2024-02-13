@@ -1,10 +1,18 @@
 import React from "react";
+import styles from "../app.module.css";
 
-const CheckboxComponent = ({ text, type, checkboxes, onChange, sign }) => {
+const CheckboxComponent = ({
+  text,
+  type,
+  checkboxes,
+  onChange,
+  sign,
+  error = null,
+}) => {
   return (
-    <div className="items">
+    <div className={styles.items}>
       <label htmlFor=""> {text}</label>
-      <div className="list-item">
+      <div className={styles.listItem}>
         {checkboxes.map((checkbox, i) => (
           <div key={i}>
             <input
@@ -17,6 +25,7 @@ const CheckboxComponent = ({ text, type, checkboxes, onChange, sign }) => {
             <span>{checkbox}</span>
           </div>
         ))}
+        {error && <p className={styles.error}>{error}</p>}
       </div>
     </div>
   );
