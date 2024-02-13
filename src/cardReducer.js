@@ -27,11 +27,8 @@ const cardReducer = (state, action) => {
             {
 
                 const item = state.itemlist.find(item => item.id === id)
-                console.log(item)
                 const total = state.total - item.price * item.quantity;
-                console.log(total)
                 const updatedList = state.itemlist.filter(item => item.id !== id)
-                console.log(updatedList)
                 return { total, itemlist: updatedList }
 
             }
@@ -50,8 +47,12 @@ const cardReducer = (state, action) => {
             {
 
                 const item = state.itemlist.find(item => item.id === id)
-                if (item.quantity < 1) {
-                    return state;
+
+                if (item.quantity <= 1) {
+                    const total = state.total - item.price * item.quantity;
+                    const updatedList = state.itemlist.filter(item => item.id !== id)
+                    return { total, itemlist: updatedList }
+
                 }
                 const total = state.total - item.price
                 const updatedList = state.itemlist.map(item => item.id === id ? { ...item, quantity: item.quantity - 1 } : item);

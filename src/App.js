@@ -5,12 +5,11 @@ import TotalItem from "./component/TotalItem";
 import { useContext, useEffect, useState } from "react";
 import { CardContext } from "./cardContext";
 import Navbar from "./component/Navbar";
-import SideBar from "./component/SideBar";
 import { useSearchParams } from "react-router-dom";
 import data from "./JSON_DATA.json"
+import TotalItemList from "./component/TotalItemList";
 
 function App() {
-  const { itemlist, total } = useContext(CardContext);
   const [toastList, setToastList] = useState([]);
   const [items, setItems] = useState(data)
   const [filterItem, setFilterItem] = useState(items)
@@ -35,12 +34,22 @@ function App() {
     // Sort
     if (sort === "asc") {
       filteredItems.sort((a, b) => a.price - b.price);
-    } else if (sort === "desc") {
+    }
+    else if (sort === "desc") {
       filteredItems.sort((a, b) => b.price - a.price);
-    } else if (sort === "title") {
+    }
+    else if (sort === "titleAsc") {
       filteredItems.sort((a, b) => a.title.localeCompare(b.title));
     }
-
+    else if (sort === "titleDesc") {
+      filteredItems.sort((a, b) => b.title.localeCompare(a.title));
+    }
+    else if (sort === "catAsc") {
+      filteredItems.sort((a, b) => a.type.localeCompare(b.type))
+    }
+    else if (sort === "catDesc") {
+      filteredItems.sort((a, b) => b.type.localeCompare(a.type))
+    }
     setFilterItem(filteredItems);
 
   }, [param])
@@ -48,49 +57,29 @@ function App() {
   return (
     <>
       <Container fluid>
+        <Navbar setToastList={setToastList} />
         <Row>
-          <Navbar />
-        </Row>
-        <Row>
-          <Col lg xl="2" md="2">
-            <SideBar />
-          </Col>
-          <Col className="left" lg xl="6" md="6">
+          <Col className="left" lg="8" xl="8" md="8">
             <Row>
               {filterItem.map((item, i) => (
                 <CardItem key={i} {...item} setToastList={setToastList} />
               ))}
             </Row>
           </Col>
-          <Col lg xl="4" md="4">
-            <ListGroup as='ol' numbered>
-              {
-                itemlist.length === 0 ? <p className="w-100 p-3  rounded bg-antiquewhite" >cart is empty</p> :
-                  <>
-                    {
-                      itemlist.map((item, i) => (
-                        <TotalItem key={i}  {...item} />
-                      ))
-                    }
-                    <div className="border border-gray  border-1 border-top-0 d-flex justify-content-between  my-auto  px-3  pt-2 ">
-                      <p className="font-bold ">Net Total</p>
-                      <p className="badge rounded-pill   bg-primary">{Number.parseFloat(total).toFixed(2)}</p>
-                    </div>
-                  </>
-              }
-            </ListGroup>
+          <Col xl="4" md="4" lg="4">
+            <TotalItemList setToastList={setToastList} />
           </Col>
         </Row>
       </Container >
       <div className="toast-container">
         {
-          toastList.map((item) => (
-            <Toast>
+          toastList.map((item, i) => (
+            <Toast key={i}>
               <Toast.Header>
-                <strong className="me-auto">{item}</strong>
+                <strong className="me-auto">{item.title}</strong>
                 <small className="text-muted">just now</small>
               </Toast.Header>
-              <Toast.Body>Added Succesfully.</Toast.Body>
+              <Toast.Body>{item.body}</Toast.Body>
             </Toast>
           ))
         }
@@ -101,3 +90,5 @@ function App() {
 }
 
 export default App;
+
+
