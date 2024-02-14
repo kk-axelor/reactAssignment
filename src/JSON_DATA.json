@@ -103,5 +103,12 @@
     "title": "Tomato",
     "price": 12,
     "type": "vegetable"
+  },
+  {
+    "id": 16,
+    "img": "seed.jpg",
+    "title": "Seeds",
+    "price": 30,
+    "type": "seed"
   }
 ]

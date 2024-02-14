@@ -1,20 +1,18 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Row, Col, Stack, Dropdown, Popover, ListGroup } from "react-bootstrap";
+import { Row, Col, Stack, Dropdown, Popover } from "react-bootstrap";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import { useSearchParams } from "react-router-dom";
 import { CardContext } from "../cardContext";
 import TotalItemList from "./TotalItemList";
-import arrowDown from "../assets/arrowDown.svg";
-import arrowUp from "../assets/arrowUp.svg";
+import { order } from "../utils/utilsMethod";
+import { navbarLink } from "../constants/constant";
 
 const Navbar = ({ setToastList }) => {
   const { itemlist } = useContext(CardContext);
   const [searchParams, setSearchParams] = useSearchParams();
   const [sort, setSort] = useState("");
-  const [active, setActive] = useState("");
 
   const handleParams = (key, value) => {
-    setActive(value);
     setSearchParams((prevParams) => {
       if (value === null) {
         prevParams.delete(key);
@@ -42,36 +40,21 @@ const Navbar = ({ setToastList }) => {
 
   return (
     <Row className=" py-2 fs-3 navbar-bg mb-2">
-      <Col md="2" className="navbar-heading">
+      <Col md="4" lg xl="2" className="navbar-heading">
         Grocery Basket
       </Col>
 
-      <Col md="9">
+      <Col md="7" lg xl="9">
         <Stack direction="horizontal" gap={3}>
-          <span
-            className="navbar-text"
-            onClick={() => handleParams("type", null)}
-          >
-            All
-          </span>
-          <span
-            className="navbar-text"
-            onClick={() => handleParams("type", "fruit")}
-          >
-            Fruit
-          </span>
-          <span
-            className="navbar-text"
-            onClick={() => handleParams("type", "vegetable")}
-          >
-            Vegetables
-          </span>
-          <span
-            className="navbar-text"
-            onClick={() => handleParams("type", "seed")}
-          >
-            Seeds
-          </span>
+          {navbarLink.map((link) => (
+            <span
+              className="navbar-text"
+              onClick={() => handleParams("type", link.type)}
+            >
+              {link.name}
+            </span>
+          ))}
+
           <Dropdown>
             <Dropdown.Toggle
               style={{
@@ -94,8 +77,8 @@ const Navbar = ({ setToastList }) => {
                 }
               >
                 By Price
-                {sort === "asc" && <i class="ri-arrow-down-line"></i>}
-                {sort === "desc" && <i class="ri-arrow-up-line"></i>}
+                {sort === "desc" && order(0)}
+                {sort === "asc" && order(1)}
               </Dropdown.Item>
 
               <Dropdown.Item
@@ -109,9 +92,8 @@ const Navbar = ({ setToastList }) => {
                   )
                 }
               >
-                By Title{" "}
-                {sort === "titleAsc" && <i class="ri-arrow-down-line"></i>}
-                {sort === "titleDesc" && <i class="ri-arrow-up-line"></i>}
+                By Title {sort === "titleDesc" && order(0)}
+                {sort === "titleAsc" && order(1)}
               </Dropdown.Item>
 
               <Dropdown.Item
@@ -126,8 +108,8 @@ const Navbar = ({ setToastList }) => {
                 }
               >
                 By Category
-                {sort === "catAsc" && <i class="ri-arrow-down-line"></i>}
-                {sort === "catDesc" && <i class="ri-arrow-up-line"></i>}
+                {sort === "catDesc" && order(0)}
+                {sort === "catAsc" && order(1)}
               </Dropdown.Item>
 
               <Dropdown.Divider />
@@ -155,6 +137,3 @@ const Navbar = ({ setToastList }) => {
 };
 
 export default Navbar;
-/* 
-
-                         */
