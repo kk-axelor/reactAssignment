@@ -21,44 +21,50 @@ const App = () => {
     role: '',
   }
   const [sign, setSign] = useState([])
-  const [error, seterror] = useState("");
   const [data, setData] = useState(intialState);
-  const [errorKey, setErrorkey] = useState()
+  const [usernameError, setUsernameError] = useState(null);
+  const [passwordError, setPasswordError] = useState(null)
+
 
 
   const handleInput = (e) => {
-    seterror("")
+    if (e.target.name === "username")
+      setUsernameError("");
+    if (e.target.name === "password")
+      setPasswordError('')
     setData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  console.log(errorKey)
+
 
 
   const handleSubmit = (e) => {
+    setUsernameError('')
+    setPasswordError('')
     e.preventDefault();
-    for (const key in data) {
-      console.log(data[key])
-      if (data[key] === '') {
-        setErrorkey(key);
-        seterror(`${key} should not be Empty`);
-        return;
-      }
-    }
+    if (data.username === '')
+      setUsernameError("Username should not be empty")
 
-    if (sign.length === 0) {
-      setErrorkey("sign");
-      seterror(`please select sign on data filed`);
-      return
-    }
-    if (checkPassword(data.password)) {
-      setErrorkey("password")
+
+    if (data.password === '') {
+      setPasswordError("password  should not be empty")
       return;
     }
+
+    if (checkPassword(data.password)) {
+      return;
+    }
+
     window.alert("Success fully submitted")
+
+    handleReset(e);
   }
 
+
+
+
   const handleCheckbox = (e) => {
-    seterror('');
+
     if (e.target.checked) {
       setSign([...sign, e.target.value]);
     }
@@ -71,11 +77,11 @@ const App = () => {
   const checkPassword = (pwd) => {
     const regex = /\d/;
     if (pwd.length < 8) {
-      seterror("Password flied must have atleast 8 character")
+      setPasswordError("Password flied must have atleast 8 character")
       return true;
     }
     if (!regex.test(pwd)) {
-      seterror("Password must containt atleast one digit ")
+      setPasswordError("Password must containt atleast one digit ")
       return true;
     }
     return false;
@@ -87,8 +93,10 @@ const App = () => {
     e.preventDefault()
     setData(intialState);
     setSign([])
-    seterror("")
+
   }
+
+  console.log(data)
 
   return (
     <main>
@@ -99,10 +107,9 @@ const App = () => {
           text="Username"
           name="username"
           placeholder={"Enter Your name"}
-          data={data.username}
+          error={usernameError}
+          value={data.username}
           onChange={handleInput}
-          error={errorKey === "username" ? error : null}
-
         />
 
 
@@ -111,19 +118,18 @@ const App = () => {
           type="password"
           name="password"
           placeholder={"Password"}
-          data={data.password}
+          value={data.password}
           onChange={handleInput}
-          error={errorKey === "password" ? error : null}
+          error={passwordError}
         />
 
 
         <Input
           text="City"
           name="city"
-          data={data.city}
+          value={data.city}
           placeholder={"surat"}
           onChange={handleInput}
-          error={errorKey === "city" ? error : null}
         />
 
 
@@ -133,7 +139,6 @@ const App = () => {
           data={data.webserver}
           options={OPTIONS}
           onChange={handleInput}
-          error={errorKey === "webserver" ? error : null}
 
         />
 
@@ -144,7 +149,6 @@ const App = () => {
           type="radio"
           data={data.role}
           onChange={handleInput}
-          error={errorKey === "role" ? error : null}
 
         />
 
@@ -154,8 +158,7 @@ const App = () => {
           checkboxes={CHECKBOX_OPTIONS}
           onChange={handleCheckbox}
           sign={sign}
-          error={errorKey === "sign" ? error : null}
-        />
+          s />
 
 
         <div className='btn-group'>
