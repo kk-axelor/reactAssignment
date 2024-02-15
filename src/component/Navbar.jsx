@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Row, Col, Stack, Dropdown, Popover } from "react-bootstrap";
+import { Row, Col, Stack, Dropdown, Popover, NavLink } from "react-bootstrap";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import { useSearchParams } from "react-router-dom";
 import { CardContext } from "../cardContext";
@@ -11,8 +11,11 @@ const Navbar = ({ setToastList }) => {
   const { itemlist } = useContext(CardContext);
   const [searchParams, setSearchParams] = useSearchParams();
   const [sort, setSort] = useState("");
+  const [activeLink, setActiveLink] = useState(null);
 
   const handleParams = (key, value) => {
+    if (key === "type") setActiveLink(value);
+
     setSearchParams((prevParams) => {
       if (value === null) {
         prevParams.delete(key);
@@ -24,6 +27,7 @@ const Navbar = ({ setToastList }) => {
   };
 
   const clearParams = () => {
+    setActiveLink("All");
     setSearchParams({});
   };
 
@@ -33,6 +37,9 @@ const Navbar = ({ setToastList }) => {
       <TotalItemList remove={false} setToastList={setToastList} />
     </Popover>
   );
+
+  console.log(activeLink);
+  console.log(itemlist);
 
   useEffect(() => {
     setSort(searchParams.get("sort"));
@@ -45,14 +52,17 @@ const Navbar = ({ setToastList }) => {
       </Col>
 
       <Col md="7" lg xl="9">
-        <Stack direction="horizontal" gap={3}>
+        <Stack direction="horizontal" gap={3} id="navbar-container">
           {navbarLink.map((link) => (
-            <span
-              className="navbar-text"
+            <NavLink
+              key={link.type}
+              className={`navbar-text ${
+                activeLink === link.type ? "activeLink" : ""
+              }`}
               onClick={() => handleParams("type", link.type)}
             >
               {link.name}
-            </span>
+            </NavLink>
           ))}
 
           <Dropdown>

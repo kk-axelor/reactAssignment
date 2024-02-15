@@ -128,3 +128,7 @@
 .active {
   background-color: #9476f0 !important;
 }
+
+.activeLink {
+  color: rgb(229, 223, 223) !important;
+}

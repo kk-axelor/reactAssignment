@@ -1,9 +1,13 @@
 import { createContext, useReducer } from "react"
 import cardReducer from "./cardReducer"
 
+
+const data = JSON.parse(localStorage.getItem("cartData"))
+
+
 const INITIAL_STATE = {
-    itemlist: [],
-    total: 0
+    itemlist: data === null ? [] : data.itemlist,
+    total: data === null ? 0 : data.total
 }
 
 export const CardContext = createContext(INITIAL_STATE)

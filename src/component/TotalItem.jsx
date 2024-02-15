@@ -11,6 +11,7 @@ const TotalItem = ({
   remove = true,
 }) => {
   const { dispatch } = useContext(CardContext);
+
   const handleDeleteItem = () => {
     dispatch({ type: "REMOVE_CART", paylod: { id } });
   };
