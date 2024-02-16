@@ -42,21 +42,13 @@ const App = () => {
     setUsernameError('')
     setPasswordError('')
     e.preventDefault();
-    if (data.username === '')
-      setUsernameError("Username should not be empty")
 
+    const usernamevalid = checkUsername();
+    const passwordvalid = checkPassword();
 
-    if (data.password === '') {
-      setPasswordError("password  should not be empty")
-      return;
-    }
-
-    if (checkPassword(data.password)) {
-      return;
-    }
-
+    if (usernamevalid || passwordvalid)
+      return
     window.alert("Success fully submitted")
-
     handleReset(e);
   }
 
@@ -75,6 +67,12 @@ const App = () => {
 
 
   const checkPassword = (pwd) => {
+
+    if (data.password === '') {
+      setPasswordError("password  should not be empty")
+      return true;
+    }
+
     const regex = /\d/;
     if (pwd.length < 8) {
       setPasswordError("Password flied must have atleast 8 character")
@@ -93,10 +91,22 @@ const App = () => {
     e.preventDefault()
     setData(intialState);
     setSign([])
+    setUsernameError('')
+    setPasswordError('')
 
   }
 
-  console.log(data)
+
+  const checkUsername = () => {
+    console.log('this is blur')
+    if (data.username === '') {
+      setUsernameError("username can't be empty")
+      return true
+    }
+    return false;
+  }
+
+
 
   return (
     <main>
@@ -110,6 +120,7 @@ const App = () => {
           error={usernameError}
           value={data.username}
           onChange={handleInput}
+          onBlur={checkUsername}
         />
 
 
@@ -121,6 +132,7 @@ const App = () => {
           value={data.password}
           onChange={handleInput}
           error={passwordError}
+          onBlur={checkPassword}
         />
 
 

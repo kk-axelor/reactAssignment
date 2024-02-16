@@ -9,6 +9,7 @@ const Input = ({
   value,
   onChange,
   error = null,
+  onBlur = null,
 }) => {
   return (
     <div className={styles.items}>
@@ -19,6 +20,7 @@ const Input = ({
         value={value}
         placeholder={placeholder}
         onChange={(e) => onChange(e)}
+        onBlur={onBlur}
       />
       {error && <p className={styles.error}>{error}</p>}
     </div>
