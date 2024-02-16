@@ -1,9 +1,7 @@
-import { Col, Container, Toast, ListGroup, Row } from "react-bootstrap";
+import { Col, Container, Toast, Row } from "react-bootstrap";
 import "./app.css";
 import CardItem from "./component/CardItem";
-import TotalItem from "./component/TotalItem";
-import { useContext, useEffect, useState } from "react";
-import { CardContext } from "./cardContext";
+import { useEffect, useState } from "react";
 import Navbar from "./component/Navbar";
 import { useSearchParams } from "react-router-dom";
 import data from "./JSON_DATA.json"
@@ -11,9 +9,9 @@ import TotalItemList from "./component/TotalItemList";
 
 function App() {
   const [toastList, setToastList] = useState([]);
-  const [items, setItems] = useState(data)
+  const [items] = useState(data)
   const [filterItem, setFilterItem] = useState(items)
-  const [param, setParam] = useSearchParams();
+  const [param] = useSearchParams();
 
   useEffect(() => {
     const type = param.get("type")
@@ -90,5 +88,6 @@ function App() {
 }
 
 export default App;
+
 
 

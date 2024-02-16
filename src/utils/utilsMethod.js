@@ -1,3 +1,5 @@
+import { json } from "react-router-dom";
+
 export const order = (order) => {
 
     if (order) {
@@ -7,4 +9,10 @@ export const order = (order) => {
         return <i class="ri-arrow-down-line"></i>
     }
 
+}
+
+
+export const saveCartToLocalStorage = (state) => {
+    localStorage.setItem("cartData", JSON.stringify(state));
+    return state;
 }

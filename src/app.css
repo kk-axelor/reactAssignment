@@ -28,7 +28,7 @@
 }
 .navbar-text {
   color: rgb(103, 99, 99) !important;
-  font-size: 1.2rem;
+  font-size: 1.2rem !important;
   font-weight: 500;
   cursor: pointer;
 }
@@ -127,4 +127,8 @@
 
 .active {
   background-color: #9476f0 !important;
+}
+
+.activeLink {
+  color: rgb(229, 223, 223) !important;
 }
